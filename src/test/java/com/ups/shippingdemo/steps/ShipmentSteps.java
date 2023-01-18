@@ -8,12 +8,11 @@ import java.util.Locale;
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class ShipmentSteps {
+        Faker faker = Faker.instance(new Locale("es", "CO"));
 
     public void doOriginForm(){
-        Faker faker = Faker.instance(new Locale("es", "CO"));
         ShipmentOriginPage shipmentOriginPage = new ShipmentOriginPage();
         sleep(2000);
-
 
         shipmentOriginPage.selectOriginCountry.selectOptionByValue(String.valueOf(51));
         shipmentOriginPage.inputOriginFullName.setValue(faker.name().fullName());
@@ -32,8 +31,9 @@ public class ShipmentSteps {
 
         shipmentOriginPage.buttonContinue1.scrollTo();
         shipmentOriginPage.buttonContinue1.click();
-        sleep(10000);
+    }
 
+    public void doDestinationForm(){
 
     }
 }
